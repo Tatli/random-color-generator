@@ -13,7 +13,7 @@ _additionally_ it can
 
 ---
 
-## description
+## command description
 
 `node index.js` generates a random color
 
