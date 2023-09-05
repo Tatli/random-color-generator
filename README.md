@@ -2,22 +2,30 @@
 
 A command line interface application that can display the hex value inside of a `#` filled box for:
 
-- random colors 
-- user picked colors
-- user picked color and luminosity
+- [X] random colors 
+- [X] user picked colors (one at a time)
+- [X] user picked color and luminosity
 
 _additionally_ it can
 
-- ask the user for their color and luminosity choice
-- let the user specify the format (width & height) of the `#` filled box
+- [X] ask the user for their color and luminosity choice
+- [] let the user specify the format (width & height) of the `#` filled box
 
 ---
 
-## Description
+## description
 
-When a user enters node index.js in the command line, a block of approximately 31x9 `#` characters colored with a random color (using hex code, e.g. #ff0000) should be generated.
+`node index.js` generates a random color
 
-Users should be able to provide **hue** (e.g. _green or red or blue_) and **luminosity** (e.g. _light or dark_) values, for the application to then generate random colors that match those choices.
+### hue/luminosity passed as arguments
+
+`node index.js {color}` generates a specific color
+
+`node index.js {hue}<String> {luminosity}<String>` generates a color with a specific hue and luminosity\
+luminosity must be: **light** or **dark**
+
+### hue/luminosity gathered via console
+`node index.js ask` will lead to the program asking the user to specify their hue and/or luminosity decision in the console
 
 ---
 
@@ -41,3 +49,10 @@ Users should be able to provide **hue** (e.g. _green or red or blue_) and **lumi
 - [X] find console.log color module
 - [X] find random Hex Color Generator module
 - [] figure out how to convert hex to hsl (or how to convert given hex to a hsl with higher/lower luminosity)
+
+## Exercise description
+
+When a user enters node index.js in the command line, a block of approximately 31x9 `#` characters colored with a random color (using hex code, e.g. #ff0000) should be generated.
+
+Users should be able to provide **hue** (e.g. _green or red or blue_) and **luminosity** (e.g. _light or dark_) values, for the application to then generate random colors that match those choices.
+
