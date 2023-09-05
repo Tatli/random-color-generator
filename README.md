@@ -22,7 +22,7 @@ Users should be able to provide **hue** (e.g. _green or red or blue_) and **lumi
 ---
 
 ## main functions
-- [] When a user enters node index.js in the command line, a block of approximately 31x9 # characters colored with a random color (using hex code, e.g. #ff0000) should be generated.
+- [X] When a user enters node index.js in the command line, a block of approximately 31x9 # characters colored with a random color (using hex code, e.g. #ff0000) should be generated.
 - [] accept the request for a:
 - - [] hue (e.g. green or red or blue)
 - - [] luminosity (e.g. light or dark)
@@ -36,8 +36,8 @@ Users should be able to provide **hue** (e.g. _green or red or blue_) and **lumi
 
 ## to-do's
 
-- [] figure our a way to handle user input (probably cli arguments: [argv array])
-- [] either create a template to use for the 31x9 grid or create an algorithm for dynamic grid
-- [] find console.log color module
-- [] find random Hex Color Generator module
+- [X] figure our a way to handle user input (probably cli arguments: [argv array])
+- [X] either create a template to use for the 31x9 grid or create an algorithm for dynamic grid
+- [X] find console.log color module
+- [X] find random Hex Color Generator module
 - [] figure out how to convert hex to hsl (or how to convert given hex to a hsl with higher/lower luminosity)
