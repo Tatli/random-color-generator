@@ -7,6 +7,7 @@ const userFirstArgument = argv[2];
 const userSecondArgument = argv[3];
 let boxColor = '';
 let box = ``;
+let selectedColor = ``;
 
 console.log(`userHue/argv[3]: ${userFirstArgument}`);
 console.log(`userLuminosity/argv[4]: ${userSecondArgument}`);
@@ -25,167 +26,66 @@ if (userFirstArgument === 'ask') {
   });
 
   console.log(`
-Thank you for your your answer. \r\n
-Here's your selection:
-Hue: ${answerHue}
-Luminosity: ${answerLuminosity}`);
+  Thank you for your your answer. \r\n
+  Here's your selection:
+  Hue: ${answerHue}
+  Luminosity: ${answerLuminosity}`);
 
   rl.close();
   if (answerLuminosity && answerHue) {
     // Hue and luminosity provided by user
-
-    // Generate color
-    const luminosityAndHueSpecifiedHexColor = randomColor({
+    selectedColor = randomColor({
       luminosity: answerLuminosity,
       hue: answerHue,
     });
-
-    // Set box Color
-    boxColor = chalk.hex(luminosityAndHueSpecifiedHexColor);
-
-    // Create box containing generated colors hex value
-    box = ` asked lumi and hue
-  ###############################
-  ###############################
-  ###############################
-  #####                     #####
-  #####       ${luminosityAndHueSpecifiedHexColor}       #####
-  #####                     #####
-  ###############################
-  ###############################
-  ###############################`;
-
-    // Print box to console
-    console.log(boxColor(box));
   } else if (answerLuminosity) {
     // Luminosity provided by user
-
-    // Generate color
-    const luminositySpecifiedHexColor = randomColor({
+    selectedColor = randomColor({
       luminosity: answerLuminosity,
       hue: 'random',
     });
-
-    // Set box Color
-    boxColor = chalk.hex(luminositySpecifiedHexColor);
-
-    // Create box containing generated colors hex value
-    box = ` answer lumi only
-    ###############################
-    ###############################
-    ###############################
-    #####                     #####
-    #####       ${luminositySpecifiedHexColor}       #####
-    #####                     #####
-    ###############################
-    ###############################
-    ###############################`;
-
-    // Print box to console
-    console.log(boxColor(box));
   } else if (answerHue) {
     // Hue provided by user
-
-    // Generate color
-    const hueSpecifiedHexColor = randomColor({
+    selectedColor = randomColor({
       hue: answerHue,
       luminosity: 'random',
     });
-
-    // Create box containing generated colors hex value
-    box = ` answer hue only
-    ###############################
-    ###############################
-    ###############################
-    #####                     #####
-    #####       ${hueSpecifiedHexColor}       #####
-    #####                     #####
-    ###############################
-    ###############################
-    ###############################`;
-
-    // Set box Color
-    boxColor = chalk.hex(hueSpecifiedHexColor);
-
-    // Print box to console
-    console.log(boxColor(box));
   }
 } else if (userFirstArgument && userSecondArgument) {
   // Hue and luminosity provided by user
 
-  // Generate color
-  const luminosityAndHueSpecifiedHexColor = randomColor({
+  selectedColor = randomColor({
     luminosity: userSecondArgument,
     hue: userFirstArgument,
   });
-
-  // Set box Color
-  boxColor = chalk.hex(luminosityAndHueSpecifiedHexColor);
-
-  // Create box containing generated colors hex value
-  box = ` lumi and hue
-  ###############################
-  ###############################
-  ###############################
-  #####                     #####
-  #####       ${luminosityAndHueSpecifiedHexColor}       #####
-  #####                     #####
-  ###############################
-  ###############################
-  ###############################`;
-
-  // Print box to console
-  console.log(boxColor(box));
 } else if (userFirstArgument) {
   // Hue provided by user
 
-  // Generate color
-  const hueSpecifiedHexColor = randomColor({
+  selectedColor = randomColor({
     hue: userFirstArgument,
     luminosity: 'random',
   });
-
-  // Create box containing generated colors hex value
-  box = ` hue only
-  ###############################
-  ###############################
-  ###############################
-  #####                     #####
-  #####       ${hueSpecifiedHexColor}       #####
-  #####                     #####
-  ###############################
-  ###############################
-  ###############################`;
-
-  // Set box Color
-  boxColor = chalk.hex(hueSpecifiedHexColor);
-
-  // Print box to console
-  console.log(boxColor(box));
 } else {
-  // Nothing provided by user
-
-  // Generate random color
-  const randomHexColor = randomColor();
-
-  // Define own color theme with chalk module
-  boxColor = chalk.hex(randomHexColor);
-
-  // Create box containing generated colors hex value
-  box = ` random
-  ###############################
-  ###############################
-  ###############################
-  #####                     #####
-  #####       ${randomHexColor}       #####
-  #####                     #####
-  ###############################
-  ###############################
-  ###############################`;
-
-  // Print box
-  console.log(boxColor(box));
+  // No arguments or "ask" provided by user
+  selectedColor = randomColor();
 }
+
+boxColor = chalk.hex(selectedColor);
+
+// Create box containing generated colors hex value
+box = `
+        ###############################
+        ###############################
+        ###############################
+        #####                     #####
+        #####       ${selectedColor}       #####
+        #####                     #####
+        ###############################
+        ###############################
+        ###############################`;
+
+// Print box to console
+console.log(boxColor(box));
 
 // --------------Misc stuff------------------
 
