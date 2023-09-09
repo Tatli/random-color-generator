@@ -1,19 +1,8 @@
 # random-color-generator
 
-A command line interface application that can display the hex value inside of a `#` filled box for:
-
-- [X] random colors 
-- [X] user picked colors (one at a time)
-- [X] user picked color and luminosity
-
-_additionally_ it can
-
-- [X] ask the user for their color and luminosity choice
-- [ ] let the user specify the format (width & height) of the `#` filled box
-
 ---
 
-## command description
+## commands
 
 `node index.js` generates a random color
 
@@ -29,6 +18,21 @@ luminosity must be either **light** _or_ **dark**
 
 ---
 
+## funcitonality
+
+A command line interface application that can display the hex value inside of a `#` filled box for:
+
+- [X] random colors 
+- [X] user picked colors (one at a time)
+- [X] user picked color and luminosity
+
+_additionally_ it can
+
+- [X] ask the user for their color and luminosity choice
+- [ ] let the user specify the format (width & height) of the `#` filled box
+
+---
+
 ## to-do's
 
 - [X] figure our a way to handle user input (probably cli arguments: [argv array])
@@ -36,6 +40,8 @@ luminosity must be either **light** _or_ **dark**
 - [X] find console.log color module
 - [X] find random Hex Color Generator module
 - [X] figure out how to convert hex to hsl (or how to convert given hex to a hsl with higher/lower luminosity) (not necessary, since found module handles all necessities in a well enough manner)
+
+---
 
 ## Exercise description
 
